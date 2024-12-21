@@ -25,9 +25,9 @@ Neptune is a simple API that enables users to chat with their notes or docs. It 
 
 The service is dockerized, making it easy to set up and run. Ensure you have Docker installed and running on your system.
 
-###  Note for macOS M1 Users and newr chips
+###  Note for macOS users with Applle Sillicon chips
 
-When using Ollama on macOS with M1 or newer chips, models will run on the CPU only due to current limitations in Docker.  
+When using Ollama on the Sillicon chips, models will run on the CPU only due to current limitations in Docker.  
 For Windows or Linux users, the Ollama image can be added as a service in the `docker-compose.yaml`. More details can be found [here](https://github.com/ollama/ollama/issues/3849#issuecomment-2075359242).
 
 To avoid this limitation on macOS, Ollama should be pre-installed on your host machine.
@@ -46,7 +46,7 @@ To avoid this limitation on macOS, Ollama should be pre-installed on your host m
    git clone https://github.com/your-username/neptune.git
    ```
 4. Navigate to the Main Directory where `docker-compose.yaml` is located.
-5. Run `docker compose up`
+5. Run `docker compose up` (Make sure you have Docker daemon installed and running).
 
 
 

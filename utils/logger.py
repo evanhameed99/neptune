@@ -8,7 +8,7 @@ class Logger:
     def __init__(self, prefix: str = None):
         self.prefix = prefix or config["logging"]["default_prefix"]
         self.logger = logging.getLogger(self.prefix)
-        if not self.logger.hasHandlers():  # Only add handlers if none are present
+        if not self.logger.hasHandlers():
             self.logger.setLevel(logging.DEBUG)
 
             log_format = "%(asctime)s - "
