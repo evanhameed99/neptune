@@ -26,7 +26,7 @@ services:
       ]
   neptune-redis:
     platform: linux/x86_64
-    image: redis/redis-stack:7.4.1
+    image: redis/redis-stack:latest
     container_name: neptune-redis
     ports:
       - "6381:6379"
