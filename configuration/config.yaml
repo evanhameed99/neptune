@@ -3,7 +3,7 @@ redis:
   host: neptune-redis
   port: 6379
 ollama:
-  base_url: "http://host.docker.internal:11434" # Ollama needs to be running on the host, not inside the docker conatiner. Find explnation in readme.md
+  base_url: http://host.docker.internal:11434 # Ollama needs to be running on the host, not inside the docker conatiner. Find explnation in readme.md
 dirs:
   pdf_dir: ./pdfs
   md_dir: ./mds

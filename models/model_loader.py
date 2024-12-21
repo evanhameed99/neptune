@@ -7,7 +7,7 @@ class ModelLoader:
     def __init__(self, model_name, format=""):
         self.model_name = model_name
         self.model = OllamaLLMProvider(
-            model_name, format, base_url={config["ollama"]["base_url"]}
+            model_name, format, base_url=config["ollama"]["base_url"]
         )
 
     def invoke(self, query: str):
