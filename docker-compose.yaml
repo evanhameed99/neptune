@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: neptune_api
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.development
+    ports:
+      - "8050:8040"
+    volumes:
+      - .:/opt/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command:
+      [
+        "uvicorn",
+        "main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8040",
+        "--reload",
+        "--workers",
+        "4",
+      ]
+  neptune-redis:
+    platform: linux/x86_64
+    image: redis/redis-stack:7.4.1
+    container_name: neptune-redis
+    ports:
+      - "6381:6379"
+    volumes:
+      - ~/volumes/development/redis/neptune-redis/data:/data
