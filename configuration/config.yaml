@@ -1,13 +1,14 @@
 model_name: 'llama3.2:3b-instruct-fp16' # Feel free to change, make sure you have the model pulled from Ollama.
-redis:
-  host: neptune-redis
-  port: 6379
 ollama:
   base_url: http://host.docker.internal:11434 # Ollama needs to be running on the host, not inside the docker conatiner. Find explnation in readme.md
+hugging_face_embedding_model_name: all-MiniLM-L6-v2
 dirs:
   pdf_dir: ./pdfs
   md_dir: ./mds
   splits_dir: ./splits
+redis:
+  host: neptune-redis
+  port: 6379
 logging:
   file_path: 'logs/app.log'
   default_prefix: 'app'

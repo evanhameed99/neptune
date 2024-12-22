@@ -6,8 +6,6 @@ Neptune is a simple API that enables users to chat with their notes or docs. It 
 
 - **Ollama**: A platform for managing and running large language models locally with ease.
 - **LangChain Piping and Chaining**: Structures complex workflows for advanced query handling.
-- **History-Aware Chat Sessions**: Maintains conversational context to provide accurate follow-ups.
-- **RAG (Retrieval-Augmented Generation)**: Combines retrieval-based methods with generative AI to provide accurate and contextually enriched responses.
 - **Vector Embedding**: Converts text into high-dimensional vectors for efficient similarity search.
 - **Cosine Similarity**: Compares and ranks document chunks based on query relevance.
 - **Prompt Engineering**: Designs optimized prompts for generative AI to ensure meaningful responses.

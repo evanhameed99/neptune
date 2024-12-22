@@ -2,6 +2,7 @@ import os
 from langchain_text_splitters import MarkdownHeaderTextSplitter
 import json
 from configuration.config import config
+from utils.logger import Logger
 
 
 class MarkdownSplitter:
@@ -15,6 +16,7 @@ class MarkdownSplitter:
     )
     MD_DIR = config["dirs"]["md_dir"]
     SPLITS_DIR = config["dirs"]["splits_dir"]
+    logger = Logger("MarkdownSplitter").logger
 
     @classmethod
     def split_one_doc(cls, doc: str):
@@ -55,12 +57,11 @@ class MarkdownSplitter:
                 {"content": chunk.page_content, "metadata": chunk.metadata}
                 for chunk in splits
             ]
-            # Write splits to JSON file
             with open(splits_path, "w", encoding="utf-8") as json_file:
                 json.dump(serializable_splits, json_file, indent=4, ensure_ascii=False)
 
-            print(f"Markdown file split into {len(splits)} chunks.")
+            cls.logger.info(f"Markdown file split into {len(splits)} chunks.")
             return splits
         except Exception as e:
-            print(f"Error splitting markdown file {md_path}: {e}")
+            cls.logger.error(f"Error splitting markdown file {md_path}: {e}")
             raise

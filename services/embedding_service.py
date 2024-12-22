@@ -1,10 +1,11 @@
 from langchain_huggingface import HuggingFaceEmbeddings
+from configuration.config import config
 
 
 class EmbeddingService:
     def __init__(
         self,
-        model_name="all-MiniLM-L6-v2",
+        model_name=config["hugging_face_embedding_model_name"],
     ):
         self.model = HuggingFaceEmbeddings(model_name=model_name)
 
