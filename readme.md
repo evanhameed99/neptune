@@ -1,6 +1,6 @@
 # 🌑 Neptune
 
-Neptune is a simple API that enables users to chat with their notes or docs. It leverages Ollama, a local large language model (LLM) provider.
+Neptune is a simple API that enables users to chat with their notes or docs by leveraging Ollama, a local large language model (LLM) provider.
 
 ## Techniques Utilized
 
