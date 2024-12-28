@@ -3,3 +3,7 @@ __pycache__/
 venv
 myvenv
 logs/*
+pdfs/*
+splits/*
+mds/*
+logs/app.log

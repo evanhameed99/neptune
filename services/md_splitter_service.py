@@ -38,7 +38,6 @@ class MarkdownSplitter:
 
     @classmethod
     def locate_and_split_markdown(cls, upload_id: str):
-        os.makedirs(cls.PDF_DIR, exist_ok=True)
         os.makedirs(cls.MD_DIR, exist_ok=True)
 
         md_path = os.path.join(cls.MD_DIR, f"{upload_id}.md")

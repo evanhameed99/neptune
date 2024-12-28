@@ -10,13 +10,13 @@ router = APIRouter()
 @router.post("/completion", dependencies=[Depends(load_model_dep)])
 async def completion(request: Request, payload: CompletionPayload):
     try:
-        session_id, prompt = payload.get("session_id"), payload.get("prompt")
+        session_id, prompt = payload.session_id, payload.prompt
 
         if not session_id or not prompt:
             raise ValueError("Both session_id and prompt are required.")
 
         completion_service = CompletionService(
-            session_id=session_id, model=request.state.model
+            session_id=str(session_id), model=request.state.model
         )
 
         return StreamingResponse(

@@ -1,9 +1,10 @@
 import os
 import uuid
-from fastapi import APIRouter, HTTPException, UploadFile, File, Depends, BackgroundTasks
+from fastapi import APIRouter, HTTPException, UploadFile, Depends, BackgroundTasks
 from dependencies import ensure_pdf_file_upload_dep
 from services import DocTextExtractor, MarkdownSplitter
 from configuration.config import config
+import hashlib
 
 router = APIRouter()
 
@@ -17,7 +18,10 @@ async def upload_doc(
 ):
     try:
 
-        upload_id = str(uuid.uuid4())
+        raw_uuid = uuid.uuid4()
+        hashed = hashlib.sha256(raw_uuid.bytes).hexdigest()
+        upload_id = hashed[:25]
+
         os.makedirs(PDF_DIR, exist_ok=True)
         file_path = os.path.join(PDF_DIR, f"{upload_id}.pdf")
 

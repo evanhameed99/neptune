@@ -4,7 +4,6 @@ from typing import AsyncGenerator, List
 from configuration.config import config
 from services import EmbeddingService
 from langchain_redis import RedisChatMessageHistory
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from templates.default_prompt_template import default_prompt_template
@@ -19,8 +18,6 @@ class CompletionService:
         self.embedding_service = EmbeddingService()
 
     async def process_completion(self, prompt: str) -> AsyncGenerator[str, None]:
-        # Step 1: Get chat history
-        chat_history = self.get_chat_history()
 
         # Step 2: Load document splits
         chunks = self._load_document_splits()
